@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Chat App</title>
+		<link rel="icon" href="/img/favicon.png" />
+		<link rel="stylesheet" href="/css/styles.min.css" type="text/css" />
+	</head>
+	<body>
+		<div class="chat">
+			<div class="chat__sidebar"></div>
+			<div class="chat___main">
+				<div id="messages" class="chat__messages"></div>
+				<div class="compose">
+					<form id="message-form">
+						<input type="text" placeholder="message..." name="message" />
+						<button>Submit</button>
+					</form>
+					<button id="send-location">Send Location</button>
+				</div>
+			</div>
+		</div>
+
+		<!--? JSX -->
+		<script id="message-template" type="text/html">
+			<div class="message">
+				<p>
+					<span class="message__name">Some username</span>
+					<span class="message__meta">{{createdAt}}</span>
+				</p>
+				<p>{{message}}</p>
+			</div>
+		</script>
+		<script id="location-template" type="text/html">
+			<div class="message">
+				<p>
+					<span class="message__name">Some username</span>
+					<span class="message__meta">{{createdAt}}</span>
+				</p>
+				<p><a href="{{url}}">My location</a></p>
+			</div>
+		</script>
+
+		<!-- Client side version of socket -->
+		<script src="/socket.io/socket.io.js"></script>
+		<!-- "connection" -->
+		<script src="/js/chat.js"></script>
+	</body>
+</html>
